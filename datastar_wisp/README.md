@@ -14,8 +14,9 @@ import datastar/ds_sse
 import datastar/ds_wisp
 
 let events = [
-  ds_sse.patch_elements("<span>Hello</span>")
-  |> ds_sse.patch_elements_elements("#notice")
+  ds_sse.patch_elements()
+  |> ds_sse.patch_elements_elements("<span>Hello</span>")
+  |> ds_sse.patch_elements_selector("#notice")
   |> ds_sse.patch_elements_end,
 ]
 
