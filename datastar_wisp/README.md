@@ -14,9 +14,9 @@ import datastar/ds_sse
 import datastar/ds_wisp
 
 let events = [
-  ds_sse.merge_fragments("<span>Hello</span>")
-  |> ds_sse.merge_fragments_selector("#notice")
-  |> ds_sse.merge_fragments_end,
+  ds_sse.patch_elements("<span>Hello</span>")
+  |> ds_sse.patch_elements_elements("#notice")
+  |> ds_sse.patch_elements_end,
 ]
 
 wisp.ok()
