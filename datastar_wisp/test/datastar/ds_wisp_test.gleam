@@ -1,7 +1,6 @@
 import datastar/ds_sse
 import datastar/ds_wisp
 import wisp
-import wisp/testing
 
 // gleeunit test functions end in `_test`
 pub fn send_test() {
@@ -16,13 +15,12 @@ pub fn send_test() {
     |> ds_wisp.send(events)
 
   let expected_headers = [
-    #("cache-control", "no-cache"),
     #("content-type", "text/event-stream"),
+    #("cache-control", "no-cache"),
   ]
 
   assert response.headers == expected_headers
 
-  assert response
-    |> testing.string_body
-    == "event: datastar-patch-elements\ndata: elements <div />\n\n"
+  assert response.body
+    == wisp.Text("event: datastar-patch-elements\ndata: elements <div />\n\n")
 }
