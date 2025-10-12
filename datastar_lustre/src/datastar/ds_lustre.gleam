@@ -97,7 +97,12 @@ pub fn data_computed(key, value) {
   attr.attribute("data-computed-" <> key, value)
 }
 
-// Missing https://data-star.dev/reference/attributes#data-effect
+/// Executes an expression on page load and whenever any signals in the expression change.
+///
+/// See <https://data-star.dev/reference/attributes#data-effect>
+pub fn data_effect(expression: String) {
+  attr.attribute("data-effect", expression)
+}
 
 // Missing https://data-star.dev/reference/attributes#data-ignore
 
